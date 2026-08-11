@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,20 +6,13 @@
 
 <title>NeonBlade — Arcade Game</title>
 
-<meta name="description" content="NeonBlade is a fast-paced neon arcade slicing game built around precision, timing, combos and survival.">
-
-<meta name="theme-color" content="#07090f">
+<meta name="description" content="NeonBlade is a fast-paced neon arcade slicing game. Slash, survive, build combos and chase your highest score.">
 
 <style>
-
-/* =========================================================
-   RESET
-========================================================= */
-
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 html {
@@ -28,12 +20,9 @@ html {
 }
 
 body {
-    background:
-        radial-gradient(circle at 15% 10%, rgba(0,220,255,0.08), transparent 28%),
-        radial-gradient(circle at 85% 20%, rgba(150,0,255,0.08), transparent 30%),
-        #07090f;
-    color: #f5f7ff;
     font-family: Arial, Helvetica, sans-serif;
+    background: #080a0f;
+    color: #f5f7ff;
     line-height: 1.6;
 }
 
@@ -47,63 +36,49 @@ img {
     display: block;
 }
 
-button {
-    font: inherit;
-}
+/* =========================
+   HEADER
+========================= */
 
-
-/* =========================================================
-   NAVIGATION
-========================================================= */
-
-.navbar {
+header {
     position: sticky;
     top: 0;
     z-index: 1000;
-
-    background: rgba(7,9,15,0.88);
-    backdrop-filter: blur(18px);
-
-    border-bottom: 1px solid rgba(255,255,255,0.08);
+    background: rgba(8,10,15,0.92);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid #1d222d;
 }
 
-.nav-inner {
+.nav {
     max-width: 1200px;
     margin: auto;
-    padding: 16px 24px;
-
+    height: 72px;
+    padding: 0 25px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 30px;
 }
 
 .logo {
     display: flex;
     align-items: center;
     gap: 12px;
-
-    font-weight: 900;
-    letter-spacing: 2px;
-    font-size: 18px;
+    font-size: 21px;
+    font-weight: 800;
+    letter-spacing: 1px;
 }
 
 .logo img {
     width: 42px;
     height: 42px;
-    border-radius: 11px;
+    border-radius: 10px;
 }
 
 .nav-links {
     display: flex;
-    gap: 26px;
-    align-items: center;
-}
-
-.nav-links a {
-    color: #aeb5c8;
+    gap: 30px;
+    color: #aeb5c5;
     font-size: 14px;
-    transition: 0.2s;
 }
 
 .nav-links a:hover {
@@ -111,192 +86,154 @@ button {
 }
 
 .nav-download {
-    padding: 10px 18px;
-    border-radius: 10px;
-
-    background: linear-gradient(135deg,#00d9ff,#7c3cff);
-    color: white !important;
-
-    font-weight: bold;
+    background: #ffffff;
+    color: #080a0f;
+    padding: 11px 19px;
+    border-radius: 9px;
+    font-weight: 700;
 }
 
-
-/* =========================================================
+/* =========================
    HERO
-========================================================= */
+========================= */
 
 .hero {
+    border-bottom: 1px solid #1d222d;
+    background:
+        radial-gradient(circle at 75% 30%, rgba(0,255,220,0.12), transparent 35%),
+        radial-gradient(circle at 20% 70%, rgba(100,60,255,0.10), transparent 35%),
+        #080a0f;
+}
+
+.hero-inner {
     max-width: 1200px;
     margin: auto;
-    padding: 90px 24px 70px;
-
+    padding: 75px 25px;
     display: grid;
     grid-template-columns: 180px 1fr 260px;
     gap: 45px;
     align-items: center;
 }
 
-.hero-icon {
-    width: 180px;
-    height: 180px;
-
-    border-radius: 38px;
-
+.app-icon {
+    width: 170px;
+    height: 170px;
+    border-radius: 35px;
+    overflow: hidden;
     box-shadow:
-        0 0 50px rgba(0,220,255,0.22),
-        0 0 100px rgba(124,60,255,0.12);
+        0 0 0 1px #292f3d,
+        0 20px 60px rgba(0,0,0,0.5);
+}
+
+.app-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .category {
-    color: #00d9ff;
-    font-size: 13px;
-    font-weight: bold;
+    color: #7d879b;
+    font-size: 12px;
+    font-weight: 700;
     letter-spacing: 2px;
     margin-bottom: 8px;
 }
 
-.hero h1 {
-    font-size: clamp(48px,7vw,82px);
+h1 {
+    font-size: clamp(42px, 6vw, 70px);
     line-height: 1;
-
     letter-spacing: -3px;
-
-    background: linear-gradient(
-        90deg,
-        #ffffff,
-        #8beaff,
-        #b58aff
-    );
-
-    -webkit-background-clip: text;
-    color: transparent;
 }
 
 .tagline {
-    margin-top: 15px;
-    font-size: 21px;
-    color: #d8dced;
+    margin-top: 14px;
+    color: #aeb5c5;
+    font-size: 20px;
 }
 
-.description {
-    margin-top: 12px;
-    max-width: 600px;
-    color: #8e96ab;
+.developer {
+    margin-top: 8px;
+    color: #7f899d;
+    font-size: 14px;
 }
 
 .rating {
-    margin-top: 24px;
-
+    margin-top: 25px;
     display: flex;
+    gap: 18px;
     align-items: center;
-    gap: 12px;
+    color: #cbd1df;
 }
 
 .stars {
-    color: #ffd84d;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
+    color: #fff;
 }
 
-.rating-number {
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.rating-label {
-    color: #747c90;
-    font-size: 13px;
-}
-
-
-/* =========================================================
-   DOWNLOAD CARD
-========================================================= */
-
-.download-card {
+.download-box {
+    background: #11151d;
+    border: 1px solid #252c39;
+    border-radius: 16px;
     padding: 25px;
-
-    background: rgba(255,255,255,0.035);
-    border: 1px solid rgba(255,255,255,0.09);
-
-    border-radius: 18px;
-
-    box-shadow:
-        0 20px 60px rgba(0,0,0,0.3);
 }
 
-.download-card h3 {
+.download-box h3 {
     font-size: 18px;
-    margin-bottom: 6px;
 }
 
 .version {
-    color: #858da1;
+    color: #858fa3;
     font-size: 13px;
-    margin-bottom: 20px;
+    margin: 8px 0 18px;
 }
 
-.download-button {
+.download-btn {
     display: block;
-    width: 100%;
-
+    background: white;
+    color: #080a0f;
     text-align: center;
-
     padding: 14px;
-
-    border-radius: 11px;
-
-    background: linear-gradient(
-        135deg,
-        #00cfff,
-        #7340ff
-    );
-
-    font-weight: bold;
-
-    box-shadow: 0 10px 30px rgba(0,150,255,0.2);
-
+    border-radius: 9px;
+    font-weight: 800;
     transition: 0.2s;
 }
 
-.download-button:hover {
+.download-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 15px 40px rgba(0,150,255,0.35);
+    box-shadow: 0 10px 30px rgba(255,255,255,0.12);
 }
 
-.download-card small {
+.release-link {
     display: block;
     text-align: center;
-    margin-top: 12px;
-    color: #687083;
+    color: #8c96a9;
+    font-size: 13px;
+    margin-top: 14px;
 }
 
-
-/* =========================================================
+/* =========================
    FACTS
-========================================================= */
+========================= */
 
 .facts {
-    border-top: 1px solid rgba(255,255,255,0.07);
-    border-bottom: 1px solid rgba(255,255,255,0.07);
+    border-bottom: 1px solid #1d222d;
 }
 
 .facts-inner {
-    max-width: 1100px;
+    max-width: 1200px;
     margin: auto;
-
+    padding: 25px;
     display: grid;
-    grid-template-columns: repeat(5,1fr);
+    grid-template-columns: repeat(5, 1fr);
 }
 
 .fact {
-    padding: 25px 15px;
     text-align: center;
-
-    border-right: 1px solid rgba(255,255,255,0.07);
+    border-right: 1px solid #222834;
 }
 
 .fact:last-child {
-    border-right: none;
+    border: 0;
 }
 
 .fact strong {
@@ -305,770 +242,397 @@ button {
 }
 
 .fact span {
-    color: #727b90;
+    color: #777f91;
     font-size: 12px;
 }
 
+/* =========================
+   MAIN
+========================= */
 
-/* =========================================================
-   GENERAL SECTIONS
-========================================================= */
-
-.section {
-    max-width: 1100px;
+.container {
+    max-width: 1050px;
     margin: auto;
-    padding: 80px 24px;
+    padding: 0 25px;
 }
 
-.section-header {
+section {
+    padding: 70px 0;
+    border-bottom: 1px solid #1a1f29;
+}
+
+.section-title {
+    font-size: 28px;
     margin-bottom: 30px;
+    letter-spacing: -0.7px;
 }
 
-.section-header h2 {
-    font-size: 32px;
-    letter-spacing: -1px;
+.section-description {
+    color: #a0a8b8;
+    max-width: 750px;
 }
 
-.section-header p {
-    margin-top: 5px;
-    color: #747d91;
-}
-
-
-/* =========================================================
+/* =========================
    SCREENSHOTS
-========================================================= */
+========================= */
 
-.main-screenshot {
-    width: 100%;
-    max-height: 600px;
-
-    object-fit: cover;
-
-    border-radius: 18px;
-
-    border: 1px solid rgba(255,255,255,0.1);
-
-    cursor: pointer;
-
-    background: #0d1018;
-}
-
-.screenshot-grid {
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
+.screenshots {
+    display: flex;
     gap: 18px;
-    margin-top: 18px;
+    overflow-x: auto;
+    padding-bottom: 10px;
 }
 
 .screenshot {
+    flex: 0 0 240px;
+    height: 480px;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid #282f3b;
+    background: #10141c;
+}
+
+.screenshot img {
     width: 100%;
-    height: 220px;
-
+    height: 100%;
     object-fit: cover;
-
-    border-radius: 14px;
-
-    border: 1px solid rgba(255,255,255,0.08);
-
-    cursor: pointer;
-
-    transition: 0.25s;
 }
 
-.screenshot:hover {
-    transform: translateY(-4px);
-    border-color: rgba(0,220,255,0.5);
-}
-
-
-/* =========================================================
-   ABOUT
-========================================================= */
-
-.about-grid {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    gap: 50px;
-}
-
-.about-text p {
-    color: #a1a8ba;
-    margin-bottom: 18px;
-    font-size: 16px;
-}
-
-.info-card {
-    background: rgba(255,255,255,0.035);
-    border: 1px solid rgba(255,255,255,0.08);
-
-    border-radius: 16px;
-    padding: 24px;
-}
-
-.info-card h3 {
-    margin-bottom: 18px;
-}
-
-.info-row {
-    display: flex;
-    justify-content: space-between;
-
-    padding: 13px 0;
-
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-
-    color: #7d8598;
-}
-
-.info-row:last-child {
-    border-bottom: none;
-}
-
-.info-row strong {
-    color: white;
-}
-
-
-/* =========================================================
+/* =========================
    FEATURES
-========================================================= */
+========================= */
 
 .features {
     display: grid;
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 15px;
 }
 
 .feature {
-    padding: 24px;
-
-    background: rgba(255,255,255,0.03);
-
-    border: 1px solid rgba(255,255,255,0.07);
-
-    border-radius: 15px;
-
-    transition: 0.25s;
-}
-
-.feature:hover {
-    transform: translateY(-4px);
-    border-color: rgba(0,220,255,0.25);
-}
-
-.feature-icon {
-    font-size: 26px;
-    margin-bottom: 15px;
+    padding: 25px;
+    background: #10141b;
+    border: 1px solid #202632;
+    border-radius: 14px;
 }
 
 .feature h3 {
-    font-size: 16px;
-    margin-bottom: 8px;
+    margin-bottom: 7px;
 }
 
 .feature p {
-    color: #7d8598;
+    color: #8e97a8;
     font-size: 14px;
 }
 
-
-/* =========================================================
-   GAME MODES
-========================================================= */
+/* =========================
+   MODES
+========================= */
 
 .modes {
     display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 18px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
 }
 
 .mode {
-    padding: 30px;
-
-    border-radius: 16px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(0,220,255,0.07),
-            rgba(124,60,255,0.04)
-        );
-
-    border: 1px solid rgba(255,255,255,0.08);
+    background: #10141b;
+    border: 1px solid #202632;
+    border-radius: 14px;
+    padding: 28px;
 }
 
 .mode-number {
-    color: #00d9ff;
+    color: #596376;
     font-size: 12px;
     font-weight: bold;
 }
 
 .mode h3 {
     margin-top: 12px;
-    font-size: 20px;
 }
 
 .mode p {
-    color: #858da1;
+    color: #8d96a7;
     margin-top: 8px;
+    font-size: 14px;
 }
 
-
-/* =========================================================
+/* =========================
    PROGRESSION
-========================================================= */
+========================= */
 
 .progression {
     display: flex;
     flex-wrap: wrap;
-    gap: 12px;
+    gap: 10px;
 }
 
 .tier {
-    flex: 1 1 120px;
-
-    padding: 20px;
-
-    text-align: center;
-
-    border-radius: 13px;
-
-    background: rgba(255,255,255,0.035);
-
-    border: 1px solid rgba(255,255,255,0.07);
+    padding: 12px 18px;
+    background: #11151d;
+    border: 1px solid #282f3b;
+    border-radius: 9px;
+    color: #c5cbd7;
 }
 
-.tier-number {
-    color: #697286;
-    font-size: 11px;
-    display: block;
-}
-
-.tier strong {
-    display: block;
-    margin-top: 5px;
-}
-
-
-/* =========================================================
+/* =========================
    WHAT'S NEW
-========================================================= */
+========================= */
 
-.release {
-    padding: 28px;
-
-    border-radius: 16px;
-
-    background: rgba(255,255,255,0.035);
-
-    border: 1px solid rgba(255,255,255,0.08);
+.update {
+    background: #10141b;
+    border: 1px solid #242b38;
+    padding: 30px;
+    border-radius: 15px;
 }
 
-.release-header {
+.update-top {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-
-    margin-bottom: 18px;
+    margin-bottom: 20px;
 }
 
-.latest {
-    background: #00c98d;
-    color: #00150f;
-
-    padding: 4px 9px;
-
-    border-radius: 5px;
-
-    font-size: 10px;
-    font-weight: bold;
+.update-date {
+    color: #7f899a;
 }
 
-.release ul {
+.update ul {
     padding-left: 20px;
-    color: #939bad;
+    color: #9da5b5;
 }
 
-.release li {
-    margin: 7px 0;
+/* =========================
+   VERSION
+========================= */
+
+.version-item {
+    padding: 22px 0;
+    border-bottom: 1px solid #202632;
 }
 
-
-/* =========================================================
-   REVIEWS
-========================================================= */
-
-.review-summary {
-    display: grid;
-    grid-template-columns: 220px 1fr;
-    gap: 50px;
-
-    padding: 30px;
-
-    background: rgba(255,255,255,0.03);
-
-    border: 1px solid rgba(255,255,255,0.07);
-
-    border-radius: 16px;
+.version-item:last-child {
+    border: 0;
 }
 
-.big-rating {
-    text-align: center;
+.version-item strong {
+    font-size: 17px;
 }
 
-.big-rating strong {
-    display: block;
-    font-size: 55px;
-}
-
-.big-rating span {
-    color: #ffd84d;
-    letter-spacing: 3px;
-}
-
-.big-rating small {
-    display: block;
-    color: #70798d;
-    margin-top: 5px;
-}
-
-.rating-bars > div {
-    display: grid;
-    grid-template-columns: 20px 1fr;
-    gap: 10px;
-    align-items: center;
-
-    margin: 8px 0;
-}
-
-.rating-bar {
-    height: 7px;
-
-    background: #202532;
-
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.rating-bar div {
-    height: 100%;
-
-    background: linear-gradient(
-        90deg,
-        #00d9ff,
-        #7c3cff
-    );
-}
-
-.reviews {
-    margin-top: 20px;
-
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    gap: 18px;
-}
-
-.review {
-    padding: 22px;
-
-    border: 1px solid rgba(255,255,255,0.07);
-
-    border-radius: 14px;
-
-    background: rgba(255,255,255,0.025);
-}
-
-.review-top {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.avatar {
-    width: 38px;
-    height: 38px;
-
-    border-radius: 50%;
-
-    display: grid;
-    place-items: center;
-
-    background: linear-gradient(
-        135deg,
-        #00d9ff,
-        #7c3cff
-    );
-
-    font-weight: bold;
-}
-
-.review-stars {
-    color: #ffd84d;
+.version-item span {
+    color: #777f90;
+    margin-left: 12px;
     font-size: 13px;
 }
 
-.review p {
-    margin-top: 15px;
-    color: #949cad;
-}
-
-
-/* =========================================================
+/* =========================
    REQUIREMENTS
-========================================================= */
+========================= */
 
 .details {
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 15px;
+    border: 1px solid #242a36;
+    border-radius: 14px;
     overflow: hidden;
 }
 
 .detail {
     display: flex;
     justify-content: space-between;
-
     padding: 18px 22px;
-
-    border-bottom: 1px solid rgba(255,255,255,0.06);
+    border-bottom: 1px solid #202632;
 }
 
 .detail:last-child {
-    border-bottom: none;
+    border: 0;
 }
 
 .detail span {
-    color: #7b8497;
+    color: #858fa1;
 }
 
-.detail strong {
-    color: white;
-}
+/* =========================
+   REVIEWS
+========================= */
 
-
-/* =========================================================
-   FAQ
-========================================================= */
-
-.faq {
-    border: 1px solid rgba(255,255,255,0.08);
-
+.review-summary {
+    display: flex;
+    gap: 60px;
+    align-items: center;
+    padding: 30px;
+    background: #10141b;
+    border: 1px solid #232a36;
     border-radius: 15px;
-
-    overflow: hidden;
 }
+
+.big-rating strong {
+    display: block;
+    font-size: 55px;
+    line-height: 1;
+}
+
+.big-rating span {
+    color: white;
+    letter-spacing: 3px;
+}
+
+.big-rating small {
+    display: block;
+    color: #7f899b;
+    margin-top: 5px;
+}
+
+.review {
+    margin-top: 20px;
+    padding: 24px;
+    border: 1px solid #222934;
+    border-radius: 13px;
+}
+
+.review-name {
+    font-weight: bold;
+}
+
+.review-stars {
+    color: white;
+    margin-left: 10px;
+}
+
+.review p {
+    margin-top: 12px;
+    color: #9ca4b4;
+}
+
+/* =========================
+   FAQ
+========================= */
 
 .faq-item {
-    border-bottom: 1px solid rgba(255,255,255,0.07);
-}
-
-.faq-item:last-child {
-    border-bottom: none;
+    border-bottom: 1px solid #242a35;
 }
 
 .faq-question {
     width: 100%;
-
-    padding: 20px 22px;
-
-    background: transparent;
-    border: none;
-
+    border: 0;
+    background: none;
     color: white;
-
     text-align: left;
-
+    padding: 22px 5px;
+    font-size: 16px;
     cursor: pointer;
-
     display: flex;
     justify-content: space-between;
-
-    font-weight: bold;
 }
 
 .faq-answer {
     display: none;
-
-    padding: 0 22px 20px;
-
-    color: #858da0;
+    color: #929bac;
+    padding: 0 5px 22px;
 }
 
 .faq-item.open .faq-answer {
     display: block;
 }
 
-.faq-item.open .faq-question span {
-    transform: rotate(45deg);
-}
-
-
-/* =========================================================
+/* =========================
    PRIVACY
-========================================================= */
+========================= */
 
-.privacy {
-    padding: 25px;
-
-    background: rgba(255,255,255,0.025);
-
-    border: 1px solid rgba(255,255,255,0.07);
-
+.privacy-box {
+    background: #10141b;
+    border: 1px solid #242a36;
     border-radius: 15px;
-
-    color: #929aab;
+    padding: 28px;
+    color: #9ca4b5;
 }
 
-.privacy p {
+.privacy-box p {
     margin-bottom: 12px;
 }
 
-
-/* =========================================================
+/* =========================
    FINAL DOWNLOAD
-========================================================= */
+========================= */
 
 .final-download {
-    max-width: 1100px;
-
-    margin: 30px auto 90px;
-
-    padding: 45px;
-
-    border-radius: 22px;
-
     background:
-        radial-gradient(
-            circle at 20% 50%,
-            rgba(0,220,255,0.13),
-            transparent 35%
-        ),
-        radial-gradient(
-            circle at 80% 50%,
-            rgba(124,60,255,0.13),
-            transparent 35%
-        ),
-        rgba(255,255,255,0.035);
-
-    border: 1px solid rgba(255,255,255,0.09);
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    gap: 30px;
+        radial-gradient(circle at center, rgba(255,255,255,0.06), transparent 50%),
+        #0b0e14;
+    text-align: center;
+    padding: 90px 25px;
 }
 
-.final-left {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-.final-left img {
-    width: 70px;
-    height: 70px;
-    border-radius: 17px;
+.final-download img {
+    width: 90px;
+    height: 90px;
+    border-radius: 20px;
+    margin: auto auto 20px;
 }
 
 .final-download h2 {
-    font-size: 28px;
-}
-
-.final-download p {
-    color: #80899b;
-}
-
-.final-button {
-    padding: 15px 28px;
-
-    background: linear-gradient(
-        135deg,
-        #00d9ff,
-        #7c3cff
-    );
-
-    border-radius: 11px;
-
-    font-weight: bold;
-}
-
-
-/* =========================================================
-   FOOTER
-========================================================= */
-
-footer {
-    border-top: 1px solid rgba(255,255,255,0.07);
-
-    padding: 40px 24px;
-
-    color: #687184;
-}
-
-.footer-inner {
-    max-width: 1100px;
-    margin: auto;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.footer-brand {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.footer-brand img {
-    width: 35px;
-    height: 35px;
-    border-radius: 9px;
-}
-
-.footer-links {
-    display: flex;
-    gap: 20px;
-}
-
-.footer-links a:hover {
-    color: white;
-}
-
-
-/* =========================================================
-   LIGHTBOX
-========================================================= */
-
-.lightbox {
-    position: fixed;
-    inset: 0;
-
-    background: rgba(0,0,0,0.94);
-
-    z-index: 3000;
-
-    display: none;
-
-    align-items: center;
-    justify-content: center;
-
-    padding: 30px;
-}
-
-.lightbox.open {
-    display: flex;
-}
-
-.lightbox img {
-    max-width: 90vw;
-    max-height: 85vh;
-
-    border-radius: 12px;
-}
-
-.lightbox button {
-    position: absolute;
-
-    background: rgba(255,255,255,0.1);
-
-    border: 1px solid rgba(255,255,255,0.15);
-
-    color: white;
-
-    cursor: pointer;
-
-    border-radius: 50%;
-}
-
-.lightbox-close {
-    top: 25px;
-    right: 25px;
-
-    width: 45px;
-    height: 45px;
-
-    font-size: 28px;
-}
-
-.lightbox-prev,
-.lightbox-next {
-    top: 50%;
-    transform: translateY(-50%);
-
-    width: 50px;
-    height: 50px;
-
     font-size: 35px;
 }
 
-.lightbox-prev {
-    left: 25px;
+.final-download p {
+    color: #8992a3;
+    margin: 10px 0 25px;
 }
 
-.lightbox-next {
-    right: 25px;
+.final-download .download-btn {
+    max-width: 250px;
+    margin: auto;
 }
 
+/* =========================
+   FOOTER
+========================= */
 
-/* =========================================================
+footer {
+    border-top: 1px solid #1e2430;
+    padding: 40px 25px;
+    color: #697284;
+    font-size: 13px;
+}
+
+.footer-inner {
+    max-width: 1050px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* =========================
    MOBILE
-========================================================= */
+========================= */
 
-@media (max-width: 850px) {
+@media(max-width: 850px) {
 
     .nav-links {
         display: none;
     }
 
-    .hero {
+    .hero-inner {
         grid-template-columns: 1fr;
         text-align: center;
-        padding-top: 55px;
     }
 
-    .hero-icon {
+    .app-icon {
         margin: auto;
-    }
-
-    .description {
-        margin-left: auto;
-        margin-right: auto;
     }
 
     .rating {
         justify-content: center;
     }
 
-    .download-card {
-        max-width: 350px;
-        margin: auto;
-        width: 100%;
-    }
-
     .facts-inner {
-        grid-template-columns: repeat(2,1fr);
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
     }
 
     .fact {
-        border-bottom: 1px solid rgba(255,255,255,0.07);
-    }
-
-    .screenshot-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .screenshot {
-        height: auto;
-    }
-
-    .about-grid {
-        grid-template-columns: 1fr;
+        border: 0;
     }
 
     .features {
-        grid-template-columns: repeat(2,1fr);
+        grid-template-columns: 1fr;
     }
 
     .modes {
@@ -1076,193 +640,147 @@ footer {
     }
 
     .review-summary {
-        grid-template-columns: 1fr;
-    }
-
-    .reviews {
-        grid-template-columns: 1fr;
-    }
-
-    .final-download {
-        margin-left: 20px;
-        margin-right: 20px;
-
         flex-direction: column;
-        text-align: center;
+        align-items: flex-start;
+        gap: 25px;
     }
 
     .footer-inner {
         flex-direction: column;
-        gap: 20px;
-        text-align: center;
+        gap: 10px;
     }
 }
-
-
-@media (max-width: 500px) {
-
-    .hero {
-        padding-left: 18px;
-        padding-right: 18px;
-    }
-
-    .section {
-        padding: 55px 18px;
-    }
-
-    .hero h1 {
-        font-size: 52px;
-    }
-
-    .features {
-        grid-template-columns: 1fr;
-    }
-
-    .facts-inner {
-        grid-template-columns: repeat(2,1fr);
-    }
-
-    .final-download {
-        padding: 30px 20px;
-    }
-
-    .final-left {
-        flex-direction: column;
-    }
-}
-
 </style>
 </head>
 
-
 <body>
 
+<!-- =====================================================
+     CHANGE THESE TWO VALUES
+====================================================== -->
 
-<!-- =========================================================
-     NAVIGATION
-========================================================= -->
+<script>
+const GITHUB_USERNAME = "YOUR_USERNAME";
+const GITHUB_REPOSITORY = "YOUR_REPOSITORY";
+const GITHUB_BRANCH = "main";
 
-<header class="navbar">
+/*
+   Your APK filename is EXACTLY:
+   Neon Blade.apk
+*/
 
-    <div class="nav-inner">
+const APK_URL =
+    `https://github.com/${GITHUB_USERNAME}/${GITHUB_REPOSITORY}/raw/refs/heads/${GITHUB_BRANCH}/Neon%20Blade.apk`;
+</script>
 
-        <a href="#" class="logo">
+
+<!-- ================= HEADER ================= -->
+
+<header>
+    <div class="nav">
+
+        <a href="#top" class="logo">
             <img src="app_icon.png" alt="NeonBlade">
             <span>NEONBLADE</span>
         </a>
 
         <nav class="nav-links">
-
             <a href="#about">About</a>
-
             <a href="#screenshots">Screenshots</a>
-
             <a href="#features">Features</a>
-
             <a href="#updates">Updates</a>
-
             <a href="#reviews">Reviews</a>
-
-            <a href="#support">Support</a>
-
-            <a href="#download" class="nav-download">
-                Download
-            </a>
-
         </nav>
 
-    </div>
+        <a href="#download" class="nav-download">
+            Download
+        </a>
 
+    </div>
 </header>
 
 
+<main id="top">
 
-<main>
 
-
-<!-- =========================================================
-     HERO
-========================================================= -->
+<!-- ================= HERO ================= -->
 
 <section class="hero">
 
-    <img
-        src="app_icon.png"
-        alt="NeonBlade App Icon"
-        class="hero-icon"
-    >
+    <div class="hero-inner">
 
-    <div>
-
-        <div class="category">
-            ARCADE
+        <div class="app-icon">
+            <img src="app_icon.png" alt="NeonBlade app icon">
         </div>
 
-        <h1>NeonBlade</h1>
+        <div>
 
-        <p class="tagline">
-            Slash. Survive. Dominate.
-        </p>
+            <div class="category">ARCADE</div>
 
-        <p class="description">
-            A fast-paced neon arcade slicing game where
-            precision, timing and reaction speed determine
-            how far you can go.
-        </p>
+            <h1>NeonBlade</h1>
 
-        <div class="rating">
+            <p class="tagline">
+                Slash. Survive. Dominate.
+            </p>
 
-            <span class="rating-number">
-                4.8
-            </span>
+            <p class="developer">
+                Independent Game Developer
+            </p>
 
-            <span class="stars">
-                ★★★★★
-            </span>
+            <div class="rating">
 
-            <span class="rating-label">
-                Community rating
-            </span>
+                <strong>4.8</strong>
+
+                <span class="stars">
+                    ★★★★★
+                </span>
+
+                <span>
+                    Community rating
+                </span>
+
+            </div>
 
         </div>
 
-    </div>
 
+        <div class="download-box" id="download">
 
-    <div class="download-card" id="download">
+            <h3>Get NeonBlade</h3>
 
-        <h3>
-            Get NeonBlade
-        </h3>
+            <div class="version">
+                Latest version 1.1
+            </div>
 
-        <div class="version">
-            Latest version
-            <strong>1.1</strong>
+            <a
+                href="#"
+                class="download-btn apk-download"
+            >
+                Download APK
+            </a>
+
+            <a
+                href="https://github.com/YOUR_USERNAME/YOUR_REPOSITORY/releases"
+                target="_blank"
+                class="release-link"
+            >
+                View GitHub Releases
+            </a>
+
+            <div class="version">
+                Android 8.0+
+            </div>
+
         </div>
-
-        <!-- PUT YOUR GITHUB RELEASE APK LINK HERE -->
-        <a
-            href="YOUR_GITHUB_APK_RELEASE_LINK"
-            class="download-button"
-        >
-            DOWNLOAD APK
-        </a>
-
-        <small>
-            Android 8.0+
-        </small>
 
     </div>
 
 </section>
 
 
+<!-- ================= FACTS ================= -->
 
-<!-- =========================================================
-     STORE FACTS
-========================================================= -->
-
-<section class="facts">
+<div class="facts">
 
     <div class="facts-inner">
 
@@ -1287,8 +805,55 @@ footer {
         </div>
 
         <div class="fact">
-            <strong>2026</strong>
-            <span>Latest update</span>
+            <strong>Offline</strong>
+            <span>Gameplay</span>
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ================= SCREENSHOTS ================= -->
+
+<section id="screenshots">
+
+    <div class="container">
+
+        <h2 class="section-title">
+            See NeonBlade in action
+        </h2>
+
+        <p class="section-description">
+            Fast arcade gameplay built around timing, precision,
+            combos and survival.
+        </p>
+
+        <br>
+
+        <div class="screenshots">
+
+            <div class="screenshot">
+                <img
+                    src="screenshot-1.jpeg"
+                    alt="NeonBlade gameplay screenshot 1"
+                >
+            </div>
+
+            <div class="screenshot">
+                <img
+                    src="screenshot-2.jpeg"
+                    alt="NeonBlade gameplay screenshot 2"
+                >
+            </div>
+
+            <div class="screenshot">
+                <img
+                    src="screenshot-3.jpeg"
+                    alt="NeonBlade gameplay screenshot 3"
+                >
+            </div>
+
         </div>
 
     </div>
@@ -1296,140 +861,38 @@ footer {
 </section>
 
 
+<!-- ================= ABOUT ================= -->
 
-<!-- =========================================================
-     SCREENSHOTS
-========================================================= -->
+<section id="about">
 
-<section class="section" id="screenshots">
+    <div class="container">
 
-    <div class="section-header">
-
-        <h2>
-            See NeonBlade in action
-        </h2>
-
-        <p>
-            Real gameplay screenshots.
-        </p>
-
-    </div>
-
-
-    <!-- MAIN IMAGE -->
-
-    <img
-        src="screenshot-1.jpeg"
-        id="mainScreenshot"
-        class="main-screenshot"
-        alt="NeonBlade gameplay"
-    >
-
-
-    <!-- OTHER IMAGES -->
-
-    <div class="screenshot-grid">
-
-        <img
-            src="screenshot-1.jpeg"
-            class="screenshot"
-            data-image="screenshot-1.jpeg"
-            alt="NeonBlade Screenshot 1"
-        >
-
-        <img
-            src="screenshot-2.jpeg"
-            class="screenshot"
-            data-image="screenshot-2.jpeg"
-            alt="NeonBlade Screenshot 2"
-        >
-
-        <img
-            src="screenshot-3.jpeg"
-            class="screenshot"
-            data-image="screenshot-3.jpeg"
-            alt="NeonBlade Screenshot 3"
-        >
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================================================
-     ABOUT
-========================================================= -->
-
-<section class="section" id="about">
-
-    <div class="section-header">
-
-        <h2>
+        <h2 class="section-title">
             About this game
         </h2>
 
-    </div>
-
-
-    <div class="about-grid">
-
-        <div class="about-text">
+        <div class="section-description">
 
             <p>
                 NeonBlade is a fast-paced arcade slicing game
                 built around precision, timing and survival.
             </p>
 
-            <p>
-                Slice incoming shapes, build your combo and push
-                your score as far as possible. Every move matters.
-            </p>
+            <br>
 
             <p>
-                Choose your life mode, improve your reaction speed,
-                complete challenges, earn rewards and climb your
-                personal records.
+                Slice incoming shapes, maintain your combo and
+                push your score as far as possible.
+                Every move matters.
             </p>
+
+            <br>
 
             <p>
-                As you progress, you can unlock profile frames and
-                customize your NeonBlade identity.
+                Play different life modes, complete challenges,
+                earn coins, level up and unlock cosmetic profile
+                frames as you progress.
             </p>
-
-        </div>
-
-
-        <div class="info-card">
-
-            <h3>
-                Game information
-            </h3>
-
-            <div class="info-row">
-                <span>Genre</span>
-                <strong>Arcade</strong>
-            </div>
-
-            <div class="info-row">
-                <span>Platform</span>
-                <strong>Android</strong>
-            </div>
-
-            <div class="info-row">
-                <span>Price</span>
-                <strong>Free</strong>
-            </div>
-
-            <div class="info-row">
-                <span>Offline gameplay</span>
-                <strong>Yes</strong>
-            </div>
-
-            <div class="info-row">
-                <span>Minimum Android</span>
-                <strong>8.0+</strong>
-            </div>
 
         </div>
 
@@ -1438,308 +901,163 @@ footer {
 </section>
 
 
+<!-- ================= FEATURES ================= -->
 
-<!-- =========================================================
-     FEATURES
-========================================================= -->
+<section id="features">
 
-<section class="section" id="features">
+    <div class="container">
 
-    <div class="section-header">
-
-        <h2>
+        <h2 class="section-title">
             Game features
         </h2>
 
-        <p>
-            Built for quick sessions and long-term mastery.
-        </p>
+        <div class="features">
 
-    </div>
+            <article class="feature">
+                <h3>Fast Arcade Gameplay</h3>
+                <p>
+                    Quick and responsive gameplay focused on
+                    timing and reaction speed.
+                </p>
+            </article>
 
+            <article class="feature">
+                <h3>Combo System</h3>
+                <p>
+                    Keep slicing accurately to build powerful
+                    combos and chase higher scores.
+                </p>
+            </article>
 
-    <div class="features">
+            <article class="feature">
+                <h3>Three Life Modes</h3>
+                <p>
+                    Choose between One Life, Two Life and
+                    Three Life challenges.
+                </p>
+            </article>
 
-        <article class="feature">
+            <article class="feature">
+                <h3>Challenges</h3>
+                <p>
+                    Complete objectives and earn rewards
+                    while improving your skills.
+                </p>
+            </article>
 
-            <div class="feature-icon">
-                ⚡
-            </div>
+            <article class="feature">
+                <h3>Progression</h3>
+                <p>
+                    Earn XP, level up and unlock new
+                    customization options.
+                </p>
+            </article>
 
-            <h3>
-                Fast Arcade Gameplay
-            </h3>
+            <article class="feature">
+                <h3>Cosmetics</h3>
+                <p>
+                    Unlock profile frames and customize
+                    your player profile.
+                </p>
+            </article>
 
-            <p>
-                Quick and responsive gameplay focused on
-                precision and reaction speed.
-            </p>
+            <article class="feature">
+                <h3>Statistics</h3>
+                <p>
+                    Track games played, lifetime score,
+                    best score and progression.
+                </p>
+            </article>
 
-        </article>
+            <article class="feature">
+                <h3>Leaderboards</h3>
+                <p>
+                    Chase higher scores and compare your
+                    performance.
+                </p>
+            </article>
 
-
-        <article class="feature">
-
-            <div class="feature-icon">
-                🔥
-            </div>
-
-            <h3>
-                Combo System
-            </h3>
-
-            <p>
-                Keep slicing accurately to build increasingly
-                powerful combos.
-            </p>
-
-        </article>
-
-
-        <article class="feature">
-
-            <div class="feature-icon">
-                🎮
-            </div>
-
-            <h3>
-                Multiple Modes
-            </h3>
-
-            <p>
-                Play One Life, Two Life or Three Life modes.
-            </p>
-
-        </article>
-
-
-        <article class="feature">
-
-            <div class="feature-icon">
-                🏆
-            </div>
-
-            <h3>
-                Challenges
-            </h3>
-
-            <p>
-                Complete objectives and work toward long-term
-                progression rewards.
-            </p>
-
-        </article>
-
-
-        <article class="feature">
-
-            <div class="feature-icon">
-                📈
-            </div>
-
-            <h3>
-                Level Progression
-            </h3>
-
-            <p>
-                Earn XP and increase your player level.
-            </p>
-
-        </article>
-
-
-        <article class="feature">
-
-            <div class="feature-icon">
-                🎨
-            </div>
-
-            <h3>
-                Profile Cosmetics
-            </h3>
-
-            <p>
-                Unlock different profile frames as you progress.
-            </p>
-
-        </article>
-
-
-        <article class="feature">
-
-            <div class="feature-icon">
-                📊
-            </div>
-
-            <h3>
-                Statistics
-            </h3>
-
-            <p>
-                Track games played, best scores and lifetime
-                performance.
-            </p>
-
-        </article>
-
-
-        <article class="feature">
-
-            <div class="feature-icon">
-                🏅
-            </div>
-
-            <h3>
-                Leaderboards
-            </h3>
-
-            <p>
-                Chase higher scores and compete for better
-                positions.
-            </p>
-
-        </article>
+        </div>
 
     </div>
 
 </section>
 
 
+<!-- ================= MODES ================= -->
 
-<!-- =========================================================
-     GAME MODES
-========================================================= -->
+<section>
 
-<section class="section">
+    <div class="container">
 
-    <div class="section-header">
-
-        <h2>
+        <h2 class="section-title">
             Choose your challenge
         </h2>
 
-    </div>
+        <div class="modes">
 
+            <article class="mode">
+                <span class="mode-number">01</span>
+                <h3>One Life</h3>
+                <p>
+                    One mistake can end your run.
+                    Built for high-risk players.
+                </p>
+            </article>
 
-    <div class="modes">
+            <article class="mode">
+                <span class="mode-number">02</span>
+                <h3>Two Life</h3>
+                <p>
+                    Take an additional hit while
+                    keeping the pressure high.
+                </p>
+            </article>
 
-        <article class="mode">
+            <article class="mode">
+                <span class="mode-number">03</span>
+                <h3>Three Life</h3>
+                <p>
+                    A more forgiving mode for longer
+                    sessions.
+                </p>
+            </article>
 
-            <span class="mode-number">
-                MODE 01
-            </span>
-
-            <h3>
-                One Life
-            </h3>
-
-            <p>
-                The ultimate pressure test. One mistake can
-                end your run.
-            </p>
-
-        </article>
-
-
-        <article class="mode">
-
-            <span class="mode-number">
-                MODE 02
-            </span>
-
-            <h3>
-                Two Life
-            </h3>
-
-            <p>
-                Take an additional hit while keeping the
-                pressure high.
-            </p>
-
-        </article>
-
-
-        <article class="mode">
-
-            <span class="mode-number">
-                MODE 03
-            </span>
-
-            <h3>
-                Three Life
-            </h3>
-
-            <p>
-                A more forgiving mode for longer sessions.
-            </p>
-
-        </article>
+        </div>
 
     </div>
 
 </section>
 
 
+<!-- ================= PROGRESSION ================= -->
 
-<!-- =========================================================
-     PROGRESSION
-========================================================= -->
+<section>
 
-<section class="section">
+    <div class="container">
 
-    <div class="section-header">
-
-        <h2>
+        <h2 class="section-title">
             Progress and unlocks
         </h2>
 
-        <p>
-            Keep playing and unlock new profile frames.
+        <p class="section-description">
+            Keep playing to increase your level, earn rewards
+            and unlock profile customization.
         </p>
 
-    </div>
+        <br>
 
+        <div class="progression">
 
-    <div class="progression">
+            <div class="tier">Default</div>
+            <div class="tier">Bronze</div>
+            <div class="tier">Silver</div>
+            <div class="tier">Gold</div>
+            <div class="tier">Diamond</div>
+            <div class="tier">Emerald</div>
+            <div class="tier">Neon</div>
+            <div class="tier">Legendary</div>
 
-        <div class="tier">
-            <span class="tier-number">01</span>
-            <strong>Default</strong>
-        </div>
-
-        <div class="tier">
-            <span class="tier-number">02</span>
-            <strong>Bronze</strong>
-        </div>
-
-        <div class="tier">
-            <span class="tier-number">03</span>
-            <strong>Silver</strong>
-        </div>
-
-        <div class="tier">
-            <span class="tier-number">04</span>
-            <strong>Gold</strong>
-        </div>
-
-        <div class="tier">
-            <span class="tier-number">05</span>
-            <strong>Diamond</strong>
-        </div>
-
-        <div class="tier">
-            <span class="tier-number">06</span>
-            <strong>Emerald</strong>
-        </div>
-
-        <div class="tier">
-            <span class="tier-number">07</span>
-            <strong>Neon</strong>
-        </div>
-
-        <div class="tier">
-            <span class="tier-number">08</span>
-            <strong>Legendary</strong>
         </div>
 
     </div>
@@ -1747,170 +1065,140 @@ footer {
 </section>
 
 
+<!-- ================= WHAT'S NEW ================= -->
 
-<!-- =========================================================
-     WHAT'S NEW
-========================================================= -->
+<section id="updates">
 
-<section class="section" id="updates">
+    <div class="container">
 
-    <div class="section-header">
-
-        <h2>
+        <h2 class="section-title">
             What's new
         </h2>
 
-    </div>
+        <div class="update">
 
-
-    <article class="release">
-
-        <div class="release-header">
-
-            <div>
+            <div class="update-top">
 
                 <strong>
                     Version 1.1
                 </strong>
 
-                <span class="latest">
-                    LATEST
+                <span class="update-date">
+                    August 2026
                 </span>
 
             </div>
 
-            <span>
-                August 2026
-            </span>
+            <ul>
+
+                <li>
+                    New profile customization options
+                </li>
+
+                <li>
+                    Improved challenge system
+                </li>
+
+                <li>
+                    Performance improvements
+                </li>
+
+                <li>
+                    Bug fixes and stability improvements
+                </li>
+
+            </ul>
 
         </div>
 
-
-        <ul>
-
-            <li>
-                New profile customization options
-            </li>
-
-            <li>
-                Improved challenge system
-            </li>
-
-            <li>
-                Performance improvements
-            </li>
-
-            <li>
-                Bug fixes and stability improvements
-            </li>
-
-        </ul>
-
-    </article>
+    </div>
 
 </section>
 
 
+<!-- ================= VERSION HISTORY ================= -->
 
-<!-- =========================================================
-     REVIEWS
-========================================================= -->
+<section>
 
-<section class="section" id="reviews">
+    <div class="container">
 
-    <div class="section-header">
+        <h2 class="section-title">
+            Version history
+        </h2>
 
-        <h2>
+        <div class="version-item">
+
+            <strong>Version 1.1</strong>
+
+            <span>August 2026</span>
+
+            <p class="section-description">
+                New customization options, challenge improvements
+                and stability improvements.
+            </p>
+
+        </div>
+
+        <div class="version-item">
+
+            <strong>Version 1.0</strong>
+
+            <span>Initial release</span>
+
+            <p class="section-description">
+                Initial NeonBlade release.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= REVIEWS ================= -->
+
+<section id="reviews">
+
+    <div class="container">
+
+        <h2 class="section-title">
             Ratings and reviews
         </h2>
 
-    </div>
+        <div class="review-summary">
 
+            <div class="big-rating">
 
-    <div class="review-summary">
+                <strong>4.8</strong>
 
-        <div class="big-rating">
+                <span>★★★★★</span>
 
-            <strong>
-                4.8
-            </strong>
+                <small>
+                    Community rating
+                </small>
 
-            <span>
-                ★★★★★
-            </span>
-
-            <small>
-                Community rating
-            </small>
-
-        </div>
-
-
-        <div class="rating-bars">
-
-            <div>
-                <span>5</span>
-                <div class="rating-bar">
-                    <div style="width:82%"></div>
-                </div>
             </div>
 
             <div>
-                <span>4</span>
-                <div class="rating-bar">
-                    <div style="width:12%"></div>
-                </div>
-            </div>
-
-            <div>
-                <span>3</span>
-                <div class="rating-bar">
-                    <div style="width:4%"></div>
-                </div>
-            </div>
-
-            <div>
-                <span>2</span>
-                <div class="rating-bar">
-                    <div style="width:1%"></div>
-                </div>
-            </div>
-
-            <div>
-                <span>1</span>
-                <div class="rating-bar">
-                    <div style="width:1%"></div>
-                </div>
+                <p class="section-description">
+                    NeonBlade is designed for quick sessions,
+                    high-score chasing and repeat play.
+                </p>
             </div>
 
         </div>
 
-    </div>
-
-
-    <div class="reviews">
 
         <article class="review">
 
-            <div class="review-top">
+            <span class="review-name">
+                Player
+            </span>
 
-                <div class="avatar">
-                    P
-                </div>
-
-                <div>
-
-                    <strong>
-                        Player
-                    </strong>
-
-                    <div class="review-stars">
-                        ★★★★★
-                    </div>
-
-                </div>
-
-            </div>
+            <span class="review-stars">
+                ★★★★★
+            </span>
 
             <p>
                 Fast and simple to understand, but surprisingly
@@ -1922,25 +1210,13 @@ footer {
 
         <article class="review">
 
-            <div class="review-top">
+            <span class="review-name">
+                Neon Player
+            </span>
 
-                <div class="avatar">
-                    N
-                </div>
-
-                <div>
-
-                    <strong>
-                        Neon Player
-                    </strong>
-
-                    <div class="review-stars">
-                        ★★★★★
-                    </div>
-
-                </div>
-
-            </div>
+            <span class="review-stars">
+                ★★★★★
+            </span>
 
             <p>
                 The combo system makes me want to keep trying
@@ -1954,42 +1230,43 @@ footer {
 </section>
 
 
+<!-- ================= REQUIREMENTS ================= -->
 
-<!-- =========================================================
-     REQUIREMENTS
-========================================================= -->
+<section>
 
-<section class="section">
+    <div class="container">
 
-    <div class="section-header">
-
-        <h2>
+        <h2 class="section-title">
             Requirements
         </h2>
 
-    </div>
+        <div class="details">
 
+            <div class="detail">
+                <span>Platform</span>
+                <strong>Android</strong>
+            </div>
 
-    <div class="details">
+            <div class="detail">
+                <span>Minimum Android</span>
+                <strong>Android 8.0+</strong>
+            </div>
 
-        <div class="detail">
-            <span>Platform</span>
-            <strong>Android</strong>
-        </div>
+            <div class="detail">
+                <span>Architecture</span>
+                <strong>ARM64 / ARMv7</strong>
+            </div>
 
-        <div class="detail">
-            <span>Minimum Android</span>
-            <strong>Android 8.0+</strong>
-        </div>
+            <div class="detail">
+                <span>Internet</span>
+                <strong>Not required for gameplay</strong>
+            </div>
 
-        <div class="detail">
-            <span>Architecture</span>
-            <strong>ARM64 / ARMv7</strong>
-        </div>
+            <div class="detail">
+                <span>Price</span>
+                <strong>Free</strong>
+            </div>
 
-        <div class="detail">
-            <span>Internet</span>
-            <strong>Not required for gameplay</strong>
         </div>
 
     </div>
@@ -1997,205 +1274,158 @@ footer {
 </section>
 
 
+<!-- ================= PRIVACY ================= -->
 
-<!-- =========================================================
-     PRIVACY
-========================================================= -->
+<section>
 
-<section class="section">
+    <div class="container">
 
-    <div class="section-header">
-
-        <h2>
+        <h2 class="section-title">
             Privacy
         </h2>
 
-    </div>
-
-
-    <div class="privacy">
-
-        <p>
-            NeonBlade can be played offline. Internet access is
-            only used when the game checks whether a newer
-            version is available.
-        </p>
-
-        <p>
-            The update check does not intentionally upload
-            game progress, coins, statistics, profile information
-            or preferences.
-        </p>
-
-        <p>
-            Normal internet connections may expose network-level
-            information such as an IP address to the server.
-        </p>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================================================
-     FAQ
-========================================================= -->
-
-<section class="section" id="support">
-
-    <div class="section-header">
-
-        <h2>
-            Frequently asked questions
-        </h2>
-
-    </div>
-
-
-    <div class="faq">
-
-
-        <div class="faq-item">
-
-            <button class="faq-question">
-
-                How do I install NeonBlade?
-
-                <span>+</span>
-
-            </button>
-
-            <div class="faq-answer">
-
-                Download the APK from the official release
-                and open it on your Android device.
-
-            </div>
-
-        </div>
-
-
-        <div class="faq-item">
-
-            <button class="faq-question">
-
-                Is NeonBlade free?
-
-                <span>+</span>
-
-            </button>
-
-            <div class="faq-answer">
-
-                Yes. NeonBlade is free to download and play.
-
-            </div>
-
-        </div>
-
-
-        <div class="faq-item">
-
-            <button class="faq-question">
-
-                Can I play offline?
-
-                <span>+</span>
-
-            </button>
-
-            <div class="faq-answer">
-
-                Yes. Gameplay does not require an internet
-                connection.
-
-            </div>
-
-        </div>
-
-
-        <div class="faq-item">
-
-            <button class="faq-question">
-
-                Where do updates come from?
-
-                <span>+</span>
-
-            </button>
-
-            <div class="faq-answer">
-
-                Official APK releases are published through
-                the NeonBlade GitHub repository.
-
-            </div>
-
-        </div>
-
-
-        <div class="faq-item">
-
-            <button class="faq-question">
-
-                How do I report a bug?
-
-                <span>+</span>
-
-            </button>
-
-            <div class="faq-answer">
-
-                Contact the developer through the official
-                support channel or GitHub repository.
-
-            </div>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================================================
-     FINAL DOWNLOAD
-========================================================= -->
-
-<section class="final-download">
-
-    <div class="final-left">
-
-        <img
-            src="app_icon.png"
-            alt="NeonBlade"
-        >
-
-        <div>
-
-            <h2>
-                Ready to play?
-            </h2>
+        <div class="privacy-box">
 
             <p>
-                Download NeonBlade for Android.
+                NeonBlade includes a simple update checker.
+            </p>
+
+            <p>
+                The update checker retrieves version information
+                from the update server and does not intentionally
+                upload game progress, coins, statistics,
+                profile information or preferences.
+            </p>
+
+            <p>
+                Gameplay can be played offline.
+            </p>
+
+            <p>
+                Normal internet connections may expose network
+                information such as an IP address to the server.
             </p>
 
         </div>
 
     </div>
 
+</section>
 
-    <!-- USE YOUR REAL GITHUB RELEASE LINK -->
+
+<!-- ================= FAQ ================= -->
+
+<section>
+
+    <div class="container">
+
+        <h2 class="section-title">
+            Frequently asked questions
+        </h2>
+
+
+        <div class="faq-item">
+
+            <button class="faq-question">
+                How do I install NeonBlade?
+                <span>+</span>
+            </button>
+
+            <div class="faq-answer">
+                Download the APK and open it on your Android
+                device. Android may ask you to allow installation
+                from your browser or file manager.
+            </div>
+
+        </div>
+
+
+        <div class="faq-item">
+
+            <button class="faq-question">
+                Where do updates come from?
+                <span>+</span>
+            </button>
+
+            <div class="faq-answer">
+                Official APK releases are hosted through the
+                NeonBlade GitHub repository.
+            </div>
+
+        </div>
+
+
+        <div class="faq-item">
+
+            <button class="faq-question">
+                Is NeonBlade free?
+                <span>+</span>
+            </button>
+
+            <div class="faq-answer">
+                Yes. NeonBlade is free to download and play.
+            </div>
+
+        </div>
+
+
+        <div class="faq-item">
+
+            <button class="faq-question">
+                Can I play offline?
+                <span>+</span>
+            </button>
+
+            <div class="faq-answer">
+                Yes. Internet access is not required for normal
+                gameplay.
+            </div>
+
+        </div>
+
+
+        <div class="faq-item">
+
+            <button class="faq-question">
+                How do I get updates?
+                <span>+</span>
+            </button>
+
+            <div class="faq-answer">
+                New versions are published to the official
+                GitHub repository. The game can also check for
+                newer versions.
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FINAL DOWNLOAD ================= -->
+
+<section class="final-download">
+
+    <img
+        src="app_icon.png"
+        alt="NeonBlade"
+    >
+
+    <h2>
+        Ready to play?
+    </h2>
+
+    <p>
+        Download NeonBlade for Android.
+    </p>
 
     <a
-        href="YOUR_GITHUB_APK_RELEASE_LINK"
-        class="final-button"
+        href="#"
+        class="download-btn apk-download"
     >
-        DOWNLOAD APK
+        Download NeonBlade APK
     </a>
 
 </section>
@@ -2204,56 +1434,18 @@ footer {
 </main>
 
 
-
-<!-- =========================================================
-     FOOTER
-========================================================= -->
+<!-- ================= FOOTER ================= -->
 
 <footer>
 
     <div class="footer-inner">
 
-        <div class="footer-brand">
-
-            <img
-                src="app_icon.png"
-                alt="NeonBlade"
-            >
-
-            <div>
-
-                <strong>
-                    NeonBlade
-                </strong>
-
-                <div>
-                    Arcade Game
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <div class="footer-links">
-
-            <a href="#about">
-                About
-            </a>
-
-            <a href="#updates">
-                Updates
-            </a>
-
-            <a href="#support">
-                Support
-            </a>
-
-        </div>
-
-
         <div>
             © 2026 NeonBlade
+        </div>
+
+        <div>
+            Independent Game Developer
         </div>
 
     </div>
@@ -2261,272 +1453,53 @@ footer {
 </footer>
 
 
-
-<!-- =========================================================
-     LIGHTBOX
-========================================================= -->
-
-<div class="lightbox" id="lightbox">
-
-    <button
-        class="lightbox-close"
-        id="lightboxClose"
-    >
-        ×
-    </button>
-
-    <button
-        class="lightbox-prev"
-        id="lightboxPrev"
-    >
-        ‹
-    </button>
-
-    <img
-        id="lightboxImage"
-        src=""
-        alt="NeonBlade screenshot"
-    >
-
-    <button
-        class="lightbox-next"
-        id="lightboxNext"
-    >
-        ›
-    </button>
-
-</div>
-
-
+<!-- ================= JAVASCRIPT ================= -->
 
 <script>
 
-/* =========================================================
-   SCREENSHOT SYSTEM
-========================================================= */
+/* -----------------------------------------
+   APK DOWNLOAD
+------------------------------------------ */
 
-const screenshots = [
-    "screenshot-1.jpeg",
-    "screenshot-2.jpeg",
-    "screenshot-3.jpeg"
-];
+document.querySelectorAll(".apk-download").forEach(function(button) {
 
-let currentScreenshot = 0;
-
-const mainScreenshot =
-    document.getElementById("mainScreenshot");
-
-const lightbox =
-    document.getElementById("lightbox");
-
-const lightboxImage =
-    document.getElementById("lightboxImage");
-
-const lightboxClose =
-    document.getElementById("lightboxClose");
-
-const lightboxPrev =
-    document.getElementById("lightboxPrev");
-
-const lightboxNext =
-    document.getElementById("lightboxNext");
-
-
-function showScreenshot(index) {
-
-    currentScreenshot =
-        (index + screenshots.length) %
-        screenshots.length;
-
-    mainScreenshot.src =
-        screenshots[currentScreenshot];
-
-    lightboxImage.src =
-        screenshots[currentScreenshot];
-
-}
-
-
-/* Main screenshot click */
-
-mainScreenshot.addEventListener(
-    "click",
-    function() {
-
-        lightbox.classList.add("open");
-
-        lightboxImage.src =
-            screenshots[currentScreenshot];
-
-    }
-);
-
-
-/* Thumbnail click */
-
-document.querySelectorAll(
-    ".screenshot"
-).forEach(function(image) {
-
-    image.addEventListener(
-        "click",
-        function() {
-
-            const selected =
-                screenshots.indexOf(
-                    image.dataset.image
-                );
-
-            showScreenshot(
-                selected >= 0 ? selected : 0
-            );
-
-            lightbox.classList.add("open");
-
-            lightboxImage.src =
-                screenshots[currentScreenshot];
-
-        }
-    );
+    button.href = APK_URL;
 
 });
 
 
-/* Close */
-
-lightboxClose.addEventListener(
-    "click",
-    function() {
-
-        lightbox.classList.remove("open");
-
-    }
-);
-
-
-/* Previous */
-
-lightboxPrev.addEventListener(
-    "click",
-    function() {
-
-        showScreenshot(
-            currentScreenshot - 1
-        );
-
-    }
-);
-
-
-/* Next */
-
-lightboxNext.addEventListener(
-    "click",
-    function() {
-
-        showScreenshot(
-            currentScreenshot + 1
-        );
-
-    }
-);
-
-
-/* Close when clicking background */
-
-lightbox.addEventListener(
-    "click",
-    function(event) {
-
-        if (event.target === lightbox) {
-
-            lightbox.classList.remove("open");
-
-        }
-
-    }
-);
-
-
-/* Keyboard controls */
-
-document.addEventListener(
-    "keydown",
-    function(event) {
-
-        if (!lightbox.classList.contains("open")) {
-            return;
-        }
-
-        if (event.key === "Escape") {
-
-            lightbox.classList.remove("open");
-
-        }
-
-        if (event.key === "ArrowLeft") {
-
-            showScreenshot(
-                currentScreenshot - 1
-            );
-
-        }
-
-        if (event.key === "ArrowRight") {
-
-            showScreenshot(
-                currentScreenshot + 1
-            );
-
-        }
-
-    }
-);
-
-
-/* =========================================================
+/* -----------------------------------------
    FAQ
-========================================================= */
+------------------------------------------ */
 
-document.querySelectorAll(
-    ".faq-question"
-).forEach(function(button) {
+document.querySelectorAll(".faq-question").forEach(function(button) {
 
-    button.addEventListener(
-        "click",
-        function() {
+    button.addEventListener("click", function() {
 
-            const item =
-                button.parentElement;
+        const item = button.parentElement;
 
-            item.classList.toggle("open");
+        item.classList.toggle("open");
 
+        const symbol = button.querySelector("span");
+
+        if (item.classList.contains("open")) {
+            symbol.textContent = "−";
+        } else {
+            symbol.textContent = "+";
         }
-    );
+
+    });
 
 });
 
 
-/* =========================================================
-   PREVENT PLACEHOLDER DOWNLOAD
-========================================================= */
+/* -----------------------------------------
+   CURRENT YEAR
+------------------------------------------ */
 
-document.querySelectorAll(
-    'a[href="YOUR_GITHUB_APK_RELEASE_LINK"]'
-).forEach(function(link) {
+document.querySelectorAll("[data-year]").forEach(function(element) {
 
-    link.addEventListener(
-        "click",
-        function(event) {
-
-            event.preventDefault();
-
-            alert(
-                "Add your GitHub APK release link to index.html first."
-            );
-
-        }
-    );
+    element.textContent = new Date().getFullYear();
 
 });
 
